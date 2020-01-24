@@ -9,7 +9,6 @@
   right: 0;
   bottom: 0;
   left: 0;
-  animation: 20s linear background-animation infinite;
 }
 
 body {
@@ -29,7 +28,7 @@ body {
   display: grid;
   justify-content: center;
   transform: translateX(-300%);
-  animation: 7s linear ride-animation infinite;
+  animation: 7s linear 5s ride-animation infinite;
   position: relative;
 }
 
@@ -331,14 +330,5 @@ body {
   }
   100% {
     transform: translateX(-300%) scaleX(-1);
-  }
-}
-
-@keyframes background-animation {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
   }
 }

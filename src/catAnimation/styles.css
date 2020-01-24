@@ -1,4 +1,344 @@
+:root {
+  --cat-color: rgb(219, 147, 52);
+}
+.background {
+  background: #333 center url("fon2.jpeg");
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  animation: 20s linear background-animation infinite;
+}
+
 body {
-  background: #111;
   color: #eee;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+  padding-bottom: 50px;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  display: grid;
+  justify-content: center;
+  transform: translateX(-300%);
+  animation: 7s linear ride-animation infinite;
+  position: relative;
+}
+
+.cat {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.head {
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #555;
+  background-color: var(--cat-color);
+  border-radius: 100px;
+  padding-top: 30px;
+  box-sizing: border-box;
+  position: relative;
+  height: 100%;
+}
+.head-container {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ears {
+  display: flex;
+  width: 160px;
+  justify-content: space-between;
+  position: absolute;
+  top: -30px;
+}
+.ear {
+  border: 3px solid #555;
+  background-color: var(--cat-color);
+  width: 50px;
+  height: 60px;
+  border-radius: 50% 50% 0 0/80% 80% 0 0;
+}
+.ear:first-child {
+  transform: rotate(-5deg);
+}
+.ear:last-child {
+  transform: rotate(5deg);
+}
+
+.eyes {
+  display: flex;
+  justify-content: space-between;
+  width: 120px;
+}
+.eye {
+  width: 40px;
+  height: 40px;
+  background-color: rgb(212, 221, 87);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  border: 3px solid #555;
+}
+.pupil {
+  height: 100%;
+  width: 32px;
+  background-color: #555;
+  border-radius: 50%;
+}
+
+.face-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nose {
+  width: 20px;
+  height: 20px;
+  background-color: #555;
+  border-radius: 50%;
+}
+.moustages {
+  display: flex;
+  justify-content: center;
+  margin-top: -10px;
+}
+.moustage {
+  background-color: white;
+  width: 40px;
+  height: 30px;
+  border-radius: 50%;
+}
+.body {
+  border: 3px solid #555;
+  background-color: var(--cat-color);
+  border-radius: 50% 50% 10% 10%/70% 70% 10% 10%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 2;
+}
+.body-container {
+  width: 250px;
+  height: 300px;
+  margin-top: -30px;
+  position: relative;
+}
+.bell {
+  --size: 40px;
+
+  width: var(--size);
+  height: var(--size);
+  background-color: rgb(212, 221, 87);
+  border-radius: 50%;
+  position: absolute;
+  bottom: calc((var(--size) / -2) - 20px);
+  left: 50%;
+  margin-left: calc(var(--size) / -2);
+}
+
+.choker {
+  /* border-bottom: 10px solid cadetblue; */
+  box-shadow: 0 10px 0 10px cadetblue;
+  width: 120px;
+  height: 50px;
+  margin: -15px auto 0;
+  position: relative;
+  border-radius: 50%;
+}
+.left-hand {
+  position: absolute;
+  left: 30px;
+  top: 30px;
+  border-radius: 0 0 30px 30px;
+  border: 3px solid #555;
+  background-color: var(--cat-color);
+  transform-origin: center 95px;
+  transform: rotate(-20deg);
+  width: 50px;
+  height: 200px;
+}
+.right-hand {
+  border: 3px solid #555;
+  background-color: var(--cat-color);
+  width: 50px;
+  height: 200px;
+  border-radius: 30px;
+  position: absolute;
+  top: -110px;
+  right: 10px;
+  transform-origin: center 175px;
+  transform: rotate(10deg);
+  animation: linear 1s hand-animation infinite;
+}
+.paw {
+  padding: 10px 5px 5px;
+  border-radius: 50px;
+}
+
+.pads {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-pad {
+  width: 30px;
+  height: 24px;
+  margin: 1px auto 0;
+}
+
+.pad {
+  background-color: #555;
+  border-radius: 50%;
+}
+.pads .pad {
+  width: 10px;
+  height: 10px;
+}
+
+.pads .pad:nth-child(2) {
+  margin-top: -3px;
+}
+
+.legs {
+  margin: auto auto 0;
+  display: flex;
+  width: 180px;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -90px;
+}
+.leg {
+  border: 3px solid #555;
+  width: 60px;
+  height: 40px;
+  border-radius: 50% 50% 0 0;
+  border-bottom: 0;
+  background-color: var(--cat-color);
+}
+.tail {
+  position: absolute;
+  bottom: 0;
+  right: 100%;
+  margin-right: -50px;
+  border: 3px solid #555;
+  background-color: var(--cat-color);
+  width: 250px;
+  height: 40px;
+  border-radius: 50% 0 0 50%;
+  z-index: 1;
+}
+
+.skate {
+  width: 500px;
+
+  margin-top: -35px;
+}
+.desk {
+  background-color: seagreen;
+  transform: skewX(40deg);
+  border-radius: 50px;
+  height: 60px;
+  box-shadow: -10px 10px 0 rgb(44, 99, 58);
+}
+
+.wheels {
+  display: flex;
+  justify-content: space-around;
+}
+
+.wheel {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: sienna;
+  /* box-shadow: -5px 0 0 rgb(107, 58, 58); */
+  margin-left: 20px;
+  margin-top: 10px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  animation: linear 1s wheel-animation infinite;
+}
+
+.wheel::before,
+.wheel::after {
+  content: "";
+  display: block;
+  height: 3px;
+  background-color: #555;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.wheel::after {
+  transform: rotate(90deg);
+}
+
+@keyframes hand-animation {
+  0%,
+  100% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+}
+
+@keyframes wheel-animation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ride-animation {
+  0% {
+    transform: translateX(-300%);
+  }
+  50% {
+    transform: translateX(300%);
+  }
+  51% {
+    transform: translateX(300%) scaleX(-1);
+  }
+  100% {
+    transform: translateX(-300%) scaleX(-1);
+  }
+}
+
+@keyframes background-animation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

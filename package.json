@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel ./src/**/*.html",
-    "build": "parcel build ./src/**/*.html --public-url ../"
+    "build": "parcel build ./src/**/*.html --public-url /learn.sketches"
   },
   "repository": {
     "type": "git",

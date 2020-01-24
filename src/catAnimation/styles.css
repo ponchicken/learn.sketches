@@ -2,7 +2,7 @@
   --cat-color: rgb(219, 147, 52);
 }
 .background {
-  background: #333 center url("fon2.jpeg");
+  background: #333 center url("./fon2.jpeg");
   background-size: cover;
   position: absolute;
   top: 0;

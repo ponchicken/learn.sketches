@@ -1,0 +1,79 @@
+body {
+  background-color: rgb(66, 61, 61);
+  color: rgb(221, 196, 196);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+.main-container {
+  display: grid;
+  grid-gap: 10px;
+  justify-items: center;
+  padding: 50px;
+}
+.todo {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.todo-newtext {
+  margin-right: 20px;
+  background-color: deeppink;
+  border-color: transparent;
+  width: 250px;
+  color: rgb(66, 61, 61);
+  font-size: 25px;
+}
+
+.todo-newtext:hover {
+  border-color: yellowgreen;
+  border-style: dotted;
+}
+
+.todo-submit {
+  border-radius: 10%;
+  background-color: darkcyan;
+  color: rgb(66, 61, 61);
+  font-size: 30px;
+  font-weight: bold;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.todo-submit:hover {
+  color: yellowgreen;
+  background-color: rgb(66, 61, 61);
+}
+
+.todo-list-title {
+  font-weight: bold;
+  color: deeppink;
+  font-size: 30px;
+}
+.todo-list {
+  line-height: 40px;
+  font-size: 22px;
+  margin: 0;
+  width: 340px;
+}
+
+.todo-list li:hover {
+  color: yellowgreen;
+  cursor: pointer;
+}
+
+.todo-list li[data-status="done"] {
+  text-decoration: line-through;
+}
+
+.todo-list li button {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: yellowgreen;
+  border-radius: 10%;
+  background-color: rgb(66, 61, 61);
+  border-color: transparent;
+}
+
+.todo-list li:hover button {
+  opacity: 1;
+  transition: opacity 0.1s ease;
+}

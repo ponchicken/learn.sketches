@@ -28,8 +28,8 @@ body {
   border-style: dotted;
 }
 
-.todo-submit {
-  border-radius: 10%;
+.buttons {
+  border-radius: 5%;
   background-color: darkcyan;
   color: rgb(66, 61, 61);
   font-size: 30px;
@@ -38,7 +38,7 @@ body {
   cursor: pointer;
 }
 
-.todo-submit:hover {
+.buttons:hover {
   color: yellowgreen;
   background-color: rgb(66, 61, 61);
 }

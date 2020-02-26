@@ -28,11 +28,13 @@ function createLi(text) {
 
   const button = document.createElement("button");
   button.textContent = "✕";
+  button.classList.add("todo-delete-button");
 
   el.appendChild(button);
 
-  const button2 = document.createElement("button"); //??? right choice ???
+  const button2 = document.createElement("button");
   button2.textContent = "̸";
+  button2.classList.add("todo-edit-button");
 
   el.appendChild(button2);
 }
@@ -46,10 +48,10 @@ function displayTodos() {
 
 displayTodos();
 
-todoListEl.addEventListener("click", deleteToDoListEl);
+todoListEl.addEventListener("click", onListClick);
 
-function deleteToDoListEl(e) {
-  if (e.target.tagName === "BUTTON") {
+function onListClick(e) {
+  if (e.target.classList.contains("todo-delete-button")) {
     const newW = [];
     for (let i = 0; i < todos.length; i++) {
       if (todos[i] !== e.target.previousSibling.textContent) {
@@ -57,6 +59,18 @@ function deleteToDoListEl(e) {
       }
     }
     todos = newW;
+
+    displayTodos();
+  } else if (event.target.classList.contains("todo-edit-button")) {
+    let index
+
+    for (let i = 0; i < todos.length; i++) {
+      if (todos[i] === e.target.parentNode.firstChild.textContent) {
+        index = i;
+      }
+    }
+
+    todos[index] = prompt("?");
 
     displayTodos();
   }
@@ -71,17 +85,5 @@ function changeOrder() {
   }
 
   todos = reversedArray;
-  displayTodos();
-}
-
-button2.addEventListener("click", editToDoListEl); //??? right choice ???
-
-function editToDoListEl(q) {
-  if (q.target.tagName === "BUTTON" && q.target.textContent === "̸") {
-    console.log("hey");
-
-    // prompt("Edit your to do list point: ", answer);
-  }
-
   displayTodos();
 }

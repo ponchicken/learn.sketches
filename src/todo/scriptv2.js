@@ -3,7 +3,10 @@ const todoForm = document.getElementById("todo_form");
 const todoListEl = document.getElementById("todo_list");
 const reverseButton = document.getElementById("reverse_button");
 
-let todos = ["помыть посуду", "полить цветок", "покормить кота"];
+const storageTodos = localStorage.getItem('todos')
+let todos = storageTodos
+  ? JSON.parse(storageTodos)
+  : ["помыть посуду", "полить цветок", "покормить кота"];
 
 todoForm.addEventListener("submit", event => {
   event.preventDefault();
@@ -40,6 +43,7 @@ function createLi(text) {
 }
 
 function displayTodos() {
+  localStorage.setItem('todos', JSON.stringify(todos))
   todoListEl.innerHTML = "";
   for (let todo of todos) {
     createLi(todo);
@@ -69,8 +73,7 @@ function onListClick(e) {
         index = i;
       }
     }
-
-    todos[index] = prompt("?");
+    todos[index] = prompt("?", e.target.parentNode.firstChild.textContent);
 
     displayTodos();
   }
@@ -87,3 +90,5 @@ function changeOrder() {
   todos = reversedArray;
   displayTodos();
 }
+
+

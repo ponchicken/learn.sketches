@@ -10,7 +10,21 @@ body {
 
 .main-container {
   min-height: 100vh;
-  display: grid;
-  align-items: center;
-  justify-items: center;
+  margin-left: 450px;
+}
+
+button {
+  height: 350px;
+  width: 100px;
+}
+
+.minor {
+  width: 80px;
+  height: 180px;
+  background-color: black;
+  margin-left: -50px;
+  margin-right: -48px;
+  z-index: 0;
+  position: relative;
+  top: -172px;
 }

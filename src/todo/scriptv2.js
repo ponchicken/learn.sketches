@@ -3,7 +3,7 @@ const todoForm = document.getElementById("todo_form");
 const todoListEl = document.getElementById("todo_list");
 const reverseButton = document.getElementById("reverse_button");
 
-const storageTodos = localStorage.getItem('todos')
+const storageTodos = localStorage.getItem("todos");
 let todos = storageTodos
   ? JSON.parse(storageTodos)
   : ["помыть посуду", "полить цветок", "покормить кота"];
@@ -43,7 +43,7 @@ function createLi(text) {
 }
 
 function displayTodos() {
-  localStorage.setItem('todos', JSON.stringify(todos))
+  localStorage.setItem("todos", JSON.stringify(todos));
   todoListEl.innerHTML = "";
   for (let todo of todos) {
     createLi(todo);
@@ -66,7 +66,7 @@ function onListClick(e) {
 
     displayTodos();
   } else if (event.target.classList.contains("todo-edit-button")) {
-    let index
+    let index;
 
     for (let i = 0; i < todos.length; i++) {
       if (todos[i] === e.target.parentNode.firstChild.textContent) {
@@ -90,5 +90,3 @@ function changeOrder() {
   todos = reversedArray;
   displayTodos();
 }
-
-

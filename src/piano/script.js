@@ -8,37 +8,83 @@ const notes = {
   si: document.getElementById("note_si")
 };
 
-// const buttonPlayDo = document.querySelector('[data-id]="do"');
-// const buttonPlayRe = document.querySelector("re");
-// const buttonPlayMi = document.querySelector("mi");
-// const buttonPlayFa = document.querySelector("fa");
-// const buttonPlaySol = document.querySelector("sol");
-// const buttonPlayLya = document.querySelector("lya");
-// const buttonPlaySi = document.querySelector("si");
-
 let buttons = document.querySelector(".buttons-piano");
 
+const recButton = document.getElementById("rec");
+//const playButton = document.getElementById("play");
+//const stopButton = document.getElementById("stop");
+const playlistEl = document.querySelector(".control-playlist");
+
+recButton.addEventListener("click", recordMusic);
+//playButton.addEventListener("click", playMusic);
+//stopButton.addEventListener("click", stopMusic);
+
+let isRec = false;
+let buttonIsActive = false;
+
+const storagePlaylist = localStorage.getItem("playlist");
+let playlist = storagePlaylist ? JSON.parse(storagePlaylist) : [];
+
+function displayPlaylist() {
+  localStorage.setItem("playlist", JSON.stringify(playlist));
+  playlistEl.innerHTML = "";
+
+  for (let melody of playlist) {
+    const el = document.createElement("li");
+    el.textContent = melody;
+    playlistEl.appendChild(el);
+
+    const buttonplay = document.createElement("button");
+    buttonplay.textContent = ">";
+    buttonplay.classList.add("ButtonPlay");
+    el.appendChild(buttonplay);
+  }
+}
+
+playlistEl.addEventListener("click", playStopButton);
+
+function playStopButton(buttonplay) {
+  buttonIsActive = !buttonIsActive;
+  if (buttonIsActive) {
+    //почему не работает?
+    buttonplay.textContent = "||";
+    console.log(buttonplay.textContent);
+  } else {
+    buttonplay.textContent = ">";
+  }
+}
+
+displayPlaylist();
+
+function recordMusic() {
+  console.log("REC");
+  isRec = !isRec;
+  if (isRec) {
+    recButton.style.backgroundColor = "red";
+    playlist.push([]);
+  } else {
+    recButton.style.backgroundColor = "#ddd";
+    displayPlaylist();
+  }
+}
+
+//function playMusic() {
+//console.log("PLAY");}
+
+//function stopMusic() {
+//console.log("STOP");}
+
 buttons.addEventListener("click", e => {
-  //console.log(e.target)
   if (e.target.tagName === "BUTTON") {
     console.log(e.target.dataset.id);
-    // document.getElementById(`note_${e.target.dataset.id}`).play()
     notes[e.target.dataset.id].play();
+
+    if (isRec) {
+      playlist[playlist.length - 1].push(e.target.dataset.id);
+    }
+
+    console.log(playlist);
   }
-  //   let resultSound = buttonPlayDo
-  //     ? noteDo.play()
-  //     : buttonPlayRe
-  //     ? noteRe.play()
-  //     : buttonPlayMi
-  //     ? noteMi.play()
-  //     : buttonPlayFa
-  //     ? noteFa.play()
-  //     : buttonPlaySol
-  //     ? noteSol.play()
-  //     : buttonPlayLya
-  //     ? noteLya.play()
-  //     : buttonPlaySi
-  //     ? noteSi.play()
 });
 
 function some(key) {

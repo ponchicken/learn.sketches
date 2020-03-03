@@ -10,21 +10,34 @@ body {
 
 .main-container {
   min-height: 100vh;
-  margin-left: 450px;
 }
 
-button {
+.buttons-piano button {
   height: 350px;
   width: 100px;
+  padding: 0;
 }
 
+.buttons-piano {
+  display: flex;
+}
 .minor {
   width: 80px;
   height: 180px;
   background-color: black;
-  margin-left: -50px;
+  margin-left: -60px;
   margin-right: -48px;
   z-index: 0;
   position: relative;
   top: -172px;
+}
+
+.control-container {
+}
+
+.control-panel {
+  display: flex;
+}
+
+.control-playlist {
 }

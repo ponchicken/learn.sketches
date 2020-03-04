@@ -41,14 +41,46 @@ function displayPlaylist() {
   }
 }
 
+function pause(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+
 playlistEl.addEventListener("click", playStopButton);
 
 function playStopButton(e) {
   if (e.target.classList.contains("ButtonPlay")) {
-    console.log(e.target.previousSibling);
     let Mass = e.target.previousSibling;
-    for (let i = 0; i < Mass.length; i++) {
-      console.log(Mass[i]);
+    let arr1 = Mass.textContent.split(",");
+    console.log(arr1);
+    for (let i = 0; i < arr1.length; i++) {
+      console.log(arr1[i]);
+
+      if (arr1[i] == "do") {
+        notes["do"].play();
+        pause(200);
+      } else if (arr1[i] == "re") {
+        notes["re"].play();
+        pause(200);
+      } else if (arr1[i] == "mi") {
+        notes["mi"].play();
+        pause(200);
+      } else if (arr1[i] == "fa") {
+        notes["fa"].play();
+        pause(200);
+      } else if (arr1[i] == "sol") {
+        notes["sol"].play();
+        pause(200);
+      } else if (arr1[i] == "lya") {
+        notes["lya"].play();
+        pause(200);
+      } else if (arr1[i] == "si") {
+        notes["si"].play();
+        pause(200);
+      }
     }
   }
 }

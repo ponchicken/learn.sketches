@@ -100,7 +100,7 @@ function recordMusic() {
   console.log("REC");
   isRec = !isRec;
   if (isRec) {
-    recButton.style.backgroundColor = "red";
+    recButton.style.backgroundColor = "rgb(172, 49, 90)";
     playlist.push([]);
   } else {
     recButton.style.backgroundColor = "#ddd";

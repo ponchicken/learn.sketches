@@ -10,6 +10,8 @@ body {
 
 .main-container {
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 .buttons-piano button {
@@ -37,7 +39,19 @@ body {
 
 .control-panel {
   display: flex;
+  padding: 50px;
+  justify-content: center;
 }
 
 .control-playlist {
+  font-size: 25px;
+  list-style: none;
+}
+
+.ButtonPlay {
+  margin-left: 10px;
+}
+
+h1 {
+  padding-left: 40px;
 }

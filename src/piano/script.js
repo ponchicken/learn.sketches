@@ -43,17 +43,25 @@ function displayPlaylist() {
 
 playlistEl.addEventListener("click", playStopButton);
 
-function playStopButton(buttonplay) {
-  buttonIsActive = !buttonIsActive;
-  if (buttonIsActive) {
-    //почему не работает?
-    buttonplay.textContent = "||";
-    console.log(buttonplay.textContent);
-  } else {
-    buttonplay.textContent = ">";
+function playStopButton(e) {
+  if (e.target.classList.contains("ButtonPlay")) {
+    console.log(e.target.previousSibling);
+    let Mass = e.target.previousSibling;
+    for (let i = 0; i < Mass.length; i++) {
+      console.log(Mass[i]);
+    }
   }
 }
-
+// buttonIsActive = !buttonIsActive;
+// if (buttonIsActive) {
+//   //почему не работает?
+//   // buttonplay.textContent = "||";
+//   // console.log(buttonplay.textContent);
+//   // e.target.playlist.contains("ButtonPlay");
+//   // console.log();
+// } else {
+//   // buttonplay.textContent = ">";
+// }
 displayPlaylist();
 
 function recordMusic() {

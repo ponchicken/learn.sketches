@@ -1,0 +1,57 @@
+body {
+  background-color: #111;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  color: #eee;
+  line-height: 1.5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.buttons-piano button {
+  height: 350px;
+  width: 100px;
+  padding: 0;
+}
+
+.buttons-piano {
+  display: flex;
+}
+.minor {
+  width: 80px;
+  height: 180px;
+  background-color: black;
+  margin-left: -60px;
+  margin-right: -48px;
+  z-index: 0;
+  position: relative;
+  top: -172px;
+}
+
+.control-container {
+}
+
+.control-panel {
+  display: flex;
+  padding: 50px;
+  justify-content: center;
+}
+
+.control-playlist {
+  font-size: 25px;
+  list-style: none;
+}
+
+.ButtonPlay {
+  margin-left: 10px;
+}
+
+h1 {
+  padding-left: 40px;
+}
